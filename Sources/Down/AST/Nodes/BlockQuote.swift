@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import libcmark
 
 public class BlockQuote: BaseNode {}
 

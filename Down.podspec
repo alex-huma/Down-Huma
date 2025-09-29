@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = "Down"
   spec.summary      = "Blazing fast Markdown rendering in Swift, built upon cmark."
-  spec.version      = "0.11.0"
+  spec.version      = "0.13.0"
   spec.homepage     = "https://github.com/alex-huma/Down-Huma"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.authors      = { "Alex Chaku (Huma Fork)" => "alexchaku@users.noreply.github.com" }
@@ -23,15 +23,14 @@ Pod::Spec.new do |spec|
   spec.osx.resource = 'Sources/Down/Resources/DownView.bundle'
   spec.swift_versions = ['5.0', '5.1']
   
-  # Preserve important cmark files
-  spec.preserve_paths = "Sources/cmark/include/module.modulemap", "Sources/cmark/*.inc", "Sources/cmark/COPYING"
+  # Preserve important cmark files (excluding module.modulemap to avoid conflicts)
+  spec.preserve_paths = "Sources/cmark/*.inc", "Sources/cmark/COPYING"
   
-  # Xcode 26 compatibility - unified configuration
+  # Xcode 26 compatibility - unified configuration without separate modulemap
   spec.pod_target_xcconfig = {
     'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Down/Sources/cmark/**',
     'HEADER_SEARCH_PATHS' => '$(SRCROOT)/Down/Sources/cmark/**',
     'SWIFT_VERSION' => '5.0',
-    'MODULEMAP_FILE' => '$(SRCROOT)/Down/Sources/cmark/include/module.modulemap',
     # Enable this if you encounter Xcode 26 "Explicitly Built Modules" issues
     # 'SWIFT_ENABLE_EXPLICITLY_BUILT_MODULES' => 'NO'
   }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import libcmark
 
 public protocol DownXMLRenderable: DownRenderable {
 
