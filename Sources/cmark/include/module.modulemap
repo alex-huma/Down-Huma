@@ -1,4 +1,16 @@
 module libcmark [system][extern_c] {
+    header "../cmark.h"
     header "../node.h"
+    header "../buffer.h"
+    header "../chunk.h"
+    header "../cmark_ctype.h"
+    header "../houdini.h"
+    header "../inlines.h"
+    header "../iterator.h"
+    header "../parser.h"
+    header "../references.h"
+    header "../render.h"
+    header "../scanners.h"
+    header "../utf8.h"
     export *
 }
